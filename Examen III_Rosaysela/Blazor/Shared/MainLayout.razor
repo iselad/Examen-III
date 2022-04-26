@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>Examen III_Rosaysela Diaz</PageTitle>
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+        <AuthorizeView>
+            <Authorized>
+                   <div  style="color:fuchsia;">
+                <span class="ml-md-auto">
+                    Usuario Conectado: @context.User.Claims.First().Value
+                  
+                    <a href="/account/logout">Salir</a>
+                     
+                </span>
+                </div>
+
+            </Authorized>
+
+            <NotAuthorized>
+                  <div  style="color:red;">
+                <a href="login" class="ml-md-auto">Iniciar Sesión</a>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
